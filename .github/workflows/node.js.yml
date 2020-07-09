@@ -33,9 +33,10 @@ jobs:
           ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-
     # ------ 文件缓存 ---------
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn
+    - name: install
+      run: yarn
       if: steps.yarn-cache.outputs.cache-hit != 'true'
     - run: yarn test

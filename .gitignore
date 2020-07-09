@@ -1,0 +1,7 @@
+.vscode/
+.sonarscanner/
+node_modules/
+dist/
+
+.nyc_output/
+coverage/

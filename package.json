@@ -1,0 +1,36 @@
+{
+  "name": "data-structure",
+  "version": "1.0.0",
+  "description": "js 数据结构。在 leetcode 刷题时使用",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "coverage": "nyc --reporter=text --reporter=html ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LitileXueZha/data-structure.git"
+  },
+  "keywords": [
+    "data",
+    "structure",
+    "data-structure",
+    "js",
+    "javascript",
+    "leetcode"
+  ],
+  "author": "LitileXueZha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LitileXueZha/data-structure/issues"
+  },
+  "homepage": "https://github.com/LitileXueZha/data-structure#readme",
+  "devDependencies": {
+    "ava": "^3.10.1",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "esm": "^3.2.25",
+    "nyc": "^15.1.0"
+  }
+}

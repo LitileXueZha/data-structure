@@ -20,9 +20,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    # ------ 文件缓存 ---------
+    # 从 facebook 开源项目直接 copy 来的，并不知道 yarn 的缓存目录。。。
+    - name: Get yarn cache
+      id: yarn-cache
+      run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+    - uses: actions/cache@v2
+      with:
+        path: ${{ steps.yarn-cache.outputs.dir }}
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-
+    # ------ 文件缓存 ---------
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm test
+    - run: yarn
+    - run: yarn test

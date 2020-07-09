@@ -24,7 +24,7 @@ jobs:
     # 从 facebook 开源项目直接 copy 来的，并不知道 yarn 的缓存目录。。。
     - name: Get yarn cache
       id: yarn-cache
-      run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      run: echo "::set-output name=dir::$(yarn cache dir)"
     - uses: actions/cache@v2
       with:
         path: ${{ steps.yarn-cache.outputs.dir }}

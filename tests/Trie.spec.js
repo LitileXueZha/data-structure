@@ -18,19 +18,19 @@ ava('Trie_字典树是否正常插入', (t) => {
     const root = new Trie();
 
     WORDS.forEach((w) => {
-        t.notThrows(() => root.insert(w));
+        t.notThrows(() => root.insert(w, w));
     });
 
     const expectTrie = {
-        value: '',
+        value: null,
         children: {
             A: new TrieNode('A'),
             t: {
-                value: 't',
+                value: null,
                 children: {
                     o: new TrieNode('to'),
                     e: {
-                        value: 'te',
+                        value: null,
                         children: {
                             a: new TrieNode('tea'),
                             d: new TrieNode('ted'),
@@ -40,10 +40,10 @@ ava('Trie_字典树是否正常插入', (t) => {
                 },
             },
             i: {
-                value: 'i',
+                value: null,
                 children: {
                     n: {
-                        value: 'in',
+                        value: null,
                         children: {
                             n: new TrieNode('inn'),
                         },
@@ -71,10 +71,11 @@ ava('Trie_字典树是否准确查询', (t) => {
     const noResults = {
         ta: null,
         a: null,
+        in: null,
         innn: null,
     };
 
-    WORDS.forEach((w) => root.insert(w));
+    WORDS.forEach((w) => root.insert(w, w));
     // 正确查询
     Object.keys(results).forEach((key) => {
         t.is(root.find(key), results[key]);

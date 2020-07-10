@@ -14,10 +14,12 @@
 const root = new Trie();
 
 // 插入单词
-root.insert('abc');
+// 直接把单词当成 key
+root.insert('abc', 'abc');
+
 // 查询单词
-root.find('abc');
-// return 'abc' || null
+root.find('abc'); // 'abc'
+root.find('ab'); // null
 ```
 
 ## 参考链接
